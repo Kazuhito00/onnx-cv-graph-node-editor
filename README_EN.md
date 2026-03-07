@@ -5,7 +5,7 @@
 A visual node editor for image processing using ONNX models from [onnx-cv-graph](https://github.com/Kazuhito00/onnx-cv-graph).<br>
 Connect nodes in the browser and run real-time image processing inference with ONNX Runtime Web.
 
-<img width="1628" height="968" alt="image" src="https://github.com/user-attachments/assets/30200f69-f3b2-4721-b3de-b835562ef32e" />
+<img width="1628" height="968" alt="image" src="https://github.com/user-attachments/assets/4e0872bb-6743-44b7-a69d-9b9b30758185" />
 
 # Web Demo
 
