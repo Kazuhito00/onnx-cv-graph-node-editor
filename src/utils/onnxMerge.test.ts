@@ -738,9 +738,9 @@ describe('mergeDecodedModels', () => {
       expect(init0.floatData![0]).toBeCloseTo(2.0)
       expect(init1.floatData![0]).toBeCloseTo(1.5)
 
-      // Conv 属性が 2 つ存在（異なるカーネルサイズ）
+      // Conv 属性が 4 つ存在（各モデルに2つずつ、異なるカーネルサイズ）
       const convNodes = merged.graph!.node!.filter((n) => n.opType === 'Conv')
-      expect(convNodes.length).toBe(2)
+      expect(convNodes.length).toBe(4)
 
       expect(validateConnectivity(merged)).toEqual([])
     })

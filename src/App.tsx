@@ -74,7 +74,7 @@ function AppInner() {
   const [toast, setToast] = useState<string | null>(null)
   const flowWrapper = useRef<HTMLDivElement>(null)
   const importRef = useRef<HTMLInputElement>(null)
-  const { screenToFlowPosition, getNodes, getEdges, setNodes: rfSetNodes, fitView } = useReactFlow()
+  const { screenToFlowPosition, getNodes, getEdges, fitView } = useReactFlow()
   const { meta } = useModelsMeta(BASE)
   const { groupNodes, ungroupNode, toggleCollapse } = useSubgraph()
   const { saveSnapshot, undo, redo } = useUndoRedo(getNodes, getEdges, setNodes, setEdges)
@@ -108,7 +108,8 @@ function AppInner() {
   const handleExport = useCallback(() => {
     // previewUrl と不要なランタイムデータを除外
     const cleanNodes = nodes.map((n) => {
-      const { previewUrl, ...rest } = n.data as Record<string, unknown>
+      const rest = { ...n.data } as Record<string, unknown>
+      delete rest.previewUrl
       return { ...n, data: rest }
     })
     const data = JSON.stringify({ nodes: cleanNodes, edges }, null, 2)
@@ -487,7 +488,7 @@ function AppInner() {
         ])
       }
     },
-    [meta, saveSnapshot, setNodes, setEdges],
+    [meta, saveSnapshot, setNodes, setEdges, screenToFlowPosition],
   )
 
   const onNodeContextMenu = useCallback(

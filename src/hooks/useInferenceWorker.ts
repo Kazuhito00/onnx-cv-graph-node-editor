@@ -8,7 +8,6 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 import { useReactFlow, type Node, type Edge } from '@xyflow/react'
-import { setTensor } from './tensorStore'
 import { setTiming, clearTimingsForChain } from './useTiming'
 import type { TensorData, ModelsMeta, ProcessingNodeData, SubgraphNodeData } from '../types'
 

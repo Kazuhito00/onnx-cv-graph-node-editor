@@ -18,7 +18,6 @@ export default function ContextMenu({
   selectedNodeIds = [],
   onGroup,
   onUngroup,
-  onToggleCollapse,
   onBeforeAction,
 }: Props) {
   const { getNode, setNodes } = useReactFlow()
@@ -31,7 +30,6 @@ export default function ContextMenu({
   const node = getNode(menu.nodeId)
   const currentComment = (node?.data as { comment?: string })?.comment ?? ''
   const isSubgraph = menu.nodeType === 'subgraph'
-  const collapsed = isSubgraph ? (node?.data as { collapsed?: boolean })?.collapsed : false
   const currentName = isSubgraph ? (node?.data as { name?: string })?.name ?? '' : ''
 
   // 複数選択されている processing ノード（右クリック対象含む）
