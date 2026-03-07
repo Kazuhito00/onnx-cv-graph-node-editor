@@ -1,3 +1,5 @@
+[[Japanese](README.md)/[English](README_EN.md)]
+
 # onnx-cv-graph-node-editor
 
 [onnx-cv-graph](https://github.com/Kazuhito00/onnx-cv-graph) のONNXモデルを用いた画像処理ノードエディタです。<br>
@@ -34,7 +36,7 @@
 | Ctrl+Y | やり直し (Redo) |
 | Delete / Backspace | 選択ノード・エッジを削除 |
 
-# Requirement
+# Requirements
 
 ```
 Node.js 20 or later
