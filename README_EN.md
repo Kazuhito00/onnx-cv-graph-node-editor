@@ -18,7 +18,7 @@ Try the demo here:
 - Real-time in-browser inference with ONNX Runtime Web (WASM)
 - Preview processing results on each node
 - Group multiple nodes into subgraphs
-- Export pipelines and subgraphs as a single ONNX file
+- Experimental support for exporting constructed chains and subgraphs as a single ONNX file.
 - Import ONNX files exported by onnx-cv-graph-node-editor (baked parameters only)
 - Save / load graphs as JSON
 - Undo/Redo and auto-layout support
