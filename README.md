@@ -5,7 +5,7 @@
 [onnx-cv-graph](https://github.com/Kazuhito00/onnx-cv-graph) のONNXモデルを用いた画像処理ノードエディタです。<br>
 ブラウザ上でノードを接続し、ONNX Runtime Webでリアルタイムに画像処理を実行できます。
 
-<img width="1628" height="968" alt="image" src="https://github.com/user-attachments/assets/30200f69-f3b2-4721-b3de-b835562ef32e" />
+<img width="1628" height="968" alt="image" src="https://github.com/user-attachments/assets/4e0872bb-6743-44b7-a69d-9b9b30758185" />
 
 # Web Demo
 
