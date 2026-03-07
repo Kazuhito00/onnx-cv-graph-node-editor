@@ -1,0 +1,28 @@
+# ===== Node.js / Frontend =====
+node_modules/
+dist/
+.cache/
+
+# ===== Python =====
+__pycache__/
+*.py[codz]
+*.egg-info/
+.venv
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== 環境・設定 =====
+.env
+.envrc
+
+# ===== エディタ =====
+.vscode/
+.idea/
+.cursorignore
+.cursorindexingignore
+
+# ===== Claude Code =====
+.claude
+CLAUDE.md
