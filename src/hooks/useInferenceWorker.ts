@@ -215,11 +215,16 @@ function handleRunResult(msg: RunResultMsg) {
   if (!latestGetNodes || !latestGetEdges || !latestSetNodes) return
 
   // タイミング更新: このチェーンに属するノードのうち未処理のもののみクリア
+  const currentNodes = latestGetNodes()
+  const currentEdges = latestGetEdges()
+  const existingNodeIds = new Set(currentNodes.map((n) => n.id))
   const processedSet = new Set(msg.processedNodeIds)
-  const chainNodeIds = getChainNodeIds(msg.sourceNodeId, latestGetNodes(), latestGetEdges())
+  const chainNodeIds = getChainNodeIds(msg.sourceNodeId, currentNodes, currentEdges)
   clearTimingsForChain(chainNodeIds, processedSet)
   for (const t of msg.timings) {
-    setTiming(t.nodeId, t.opName, t.ms)
+    if (existingNodeIds.has(t.nodeId)) {
+      setTiming(t.nodeId, t.opName, t.ms)
+    }
   }
 
   // プレビュー更新

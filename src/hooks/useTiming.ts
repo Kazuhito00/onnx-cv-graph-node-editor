@@ -10,6 +10,13 @@ const timingMap = new Map<string, TimingEntry>()
 const listeners = new Set<() => void>()
 let rafScheduled = false
 
+/** 指定ノードのタイミングを削除 */
+export function clearTimingForNode(nodeId: string): void {
+  if (timingMap.delete(nodeId)) {
+    listeners.forEach((fn) => fn())
+  }
+}
+
 /** チェーンに属するノードのうち、今回処理されなかったもののタイミングを削除 */
 export function clearTimingsForChain(chainNodeIds: string[], processedNodeIds: Set<string>): void {
   for (const id of chainNodeIds) {

@@ -31,6 +31,7 @@ import { useSubgraph } from './hooks/useSubgraph'
 import { preloadWithWorker, registerUploadedModel } from './hooks/useInferenceWorker'
 import { markDirty } from './hooks/useDirtyFlag'
 import { useUndoRedo } from './hooks/useUndoRedo'
+import { clearTimingForNode } from './hooks/useTiming'
 import {
   DRAG_TYPE_MODEL,
   DRAG_TYPE_INPUT,
@@ -82,8 +83,11 @@ function AppInner() {
   // ノード変更: 削除時にスナップショット保存
   const handleNodesChange = useCallback(
     (changes: NodeChange[]) => {
-      const hasRemove = changes.some((c) => c.type === 'remove')
-      if (hasRemove) saveSnapshot()
+      const removes = changes.filter((c) => c.type === 'remove')
+      if (removes.length > 0) {
+        saveSnapshot()
+        removes.forEach((c) => clearTimingForNode(c.id))
+      }
       onNodesChange(changes)
     },
     [onNodesChange, saveSnapshot],
